@@ -7,7 +7,7 @@ public class UnitType
 
     [Required]
     [MaxLength(50)]
-    public string UnitName { get; set; } = string.Empty;  // Example: "Hour", "Day", "Project"
+    public string UnitName { get; set; } = string.Empty;  
 
 
     public ICollection<Service> Services { get; set; } = new List<Service>();

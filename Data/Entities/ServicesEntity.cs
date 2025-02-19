@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using Data.Entities;
 
 public class Service
 {
@@ -20,4 +21,5 @@ public class Service
 
 
     public UnitType UnitType { get; set; } = null!;
+    public ICollection<Project> Projects { get; set; } = new List<Project>();
 }

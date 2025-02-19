@@ -1,9 +1,16 @@
-﻿public interface IServicesRepository
+﻿using Data.Entities;
+
+namespace Data.Interfaces;
+
+public interface IServicesRepository
 {
-    Task<List<Service>> GetAllServices();
-    Task<Service?> GetServiceById(int serviceId);
-    Task AddService(Service service);
-    Task UpdateService(Service service);
-    Task DeleteService(int serviceId);
+    Task<IEnumerable<Service>> GetAllAsync();
+    Task<Service?> GetByIdAsync(int serviceId);
+    Task<Service?> GetByNameAsync(string serviceName);
+    Task<Service> AddOrGetServiceAsync(string serviceName, decimal price, int unitTypeId);
+    Task AddAsync(Service service);
+    Task UpdateAsync(Service service);
+    Task DeleteAsync(int serviceId);
 }
+
 

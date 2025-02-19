@@ -1,0 +1,49 @@
+﻿<Window x:Class="Presentation.ProjectDetailsView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Projekt Detaljer" Height="800" Width="600">
+    <Grid>
+        <StackPanel Margin="10">
+            <TextBlock Text="ProjektNr:"/>
+            <TextBox Text="{Binding Project.ProjectNumber}" IsReadOnly="True"/>
+
+            <TextBlock Text="Namn:"/>
+            <TextBox x:Name="NameTextBox" Text="{Binding Project.Name, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
+
+            <TextBlock Text="Startdatum:"/>
+            <DatePicker x:Name="StartDatePicker" SelectedDate="{Binding Project.StartDate, Mode=TwoWay}" IsEnabled="False"/>
+
+            <TextBlock Text="Slutdatum:"/>
+            <DatePicker x:Name="EndDatePicker" SelectedDate="{Binding Project.EndDate, Mode=TwoWay}" IsEnabled="False"/>
+
+            <TextBlock Text="Projektansvarig:"/>
+            <TextBox x:Name="ProjectManagerTextBox" Text="{Binding Project.ProjectManager.FirstName}" IsReadOnly="True"/>
+
+            <TextBlock Text="Kund:"/>
+            <TextBox x:Name="CustomerTextBox" Text="{Binding Project.Customer.CustomerName}" IsReadOnly="True"/>
+
+            <TextBlock Text="Tjänst:"/>
+            <TextBox x:Name="ServiceTextBox" Text="{Binding Project.Service.Name}" IsReadOnly="True"/>
+
+            <TextBlock Text="Totalpris:"/>
+            <TextBox x:Name="TotalPriceTextBox" Text="{Binding Project.Service.Price}" IsReadOnly="True"/>
+
+            <TextBlock Text="Status:"/>
+            <ComboBox x:Name="StatusComboBox"
+                      ItemsSource="{Binding StatusTypes}"
+                      SelectedItem="{Binding Project.StatusType, Mode=TwoWay}"
+                      DisplayMemberPath="Status"
+                      SelectedValuePath="Id"
+                      IsEnabled="False"/>
+
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Button x:Name="EditButton" Content="Redigera" Click="ToggleEditMode"/>
+                <Button x:Name="SaveButton" Content="Spara" Click="SaveProject" Visibility="Collapsed"/>
+                <Button Content="Avbryt" Click="CancelEdit"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
+
+
+

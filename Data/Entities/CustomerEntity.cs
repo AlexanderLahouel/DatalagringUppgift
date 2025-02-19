@@ -5,10 +5,11 @@ public class Customer
 {
     [Key]
     public int CustomerId { get; set; }
+    [Required]
     public string CustomerName { get; set; } = null!;
 
 
-    public ICollection<CustomerContacts> Contacts { get; set; } = new List<CustomerContacts>();
-
     public ICollection<Project> Projects { get; set; } = new List<Project>();
+    public ICollection<CustomerContacts> CustomerContacts { get; set; } = new List<CustomerContacts>();
+
 }

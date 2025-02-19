@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Data.Entities;
+using System.ComponentModel.DataAnnotations;
 
-namespace Data.Entities
+public class StatusType
 {
-    internal class StatusTypesEntity
-    {
-    }
+    [Key]
+    public int Id { get; set; } 
+    public string Status { get; set; } = string.Empty; 
+
+    public ICollection<Project> Projects { get; set; } = new List<Project>();
 }
